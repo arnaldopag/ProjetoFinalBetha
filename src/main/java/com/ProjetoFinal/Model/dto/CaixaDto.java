@@ -1,29 +1,22 @@
-package com.ProjetoFinal.Model.entity;
+package com.ProjetoFinal.Model.dto;
 
-import lombok.Data;
+import com.ProjetoFinal.Model.entity.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Data
 @Getter
 @Setter
-public class Caixa {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class CaixaDto {
     private Integer id;
-
-    private String Nome;
+    private String nome;
     private BigDecimal saldoTotal;
     private LocalDate dataCriacao;
-
-    @ManyToMany(mappedBy = "caixa",cascade = CascadeType.ALL)
     private List<Usuario> usuarios;
 
+    public CaixaDto(){}
 
 }
